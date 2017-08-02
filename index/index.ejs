@@ -1,0 +1,128 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <title>andrewmorris.io</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
+
+    <style>
+      body {
+        background-image: url(<%= rootDir %>/images/bg.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        color: white;
+        font-family: 'Maven Pro';
+        margin: 0px;
+      }
+
+      .bar {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.4);
+        height: 80px;
+        box-sizing: border-box;
+        display: table;
+      }
+
+      .bar > div {
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      a > .bar {
+        cursor: pointer;
+      }
+
+      #title {
+        font-size: 40px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+
+      #project-cards {
+        text-align: center;
+        width: 100%;
+      }
+
+      #project-cards > div {
+        display: inline-block;
+        width: 400px;
+        height: 225px;
+        margin: 0;
+        padding: 20px;
+      }
+
+      #project-cards > div img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+      }
+
+      #contactIconsBox {
+        position: fixed;
+        right: 10px;
+        bottom: 10px;
+      }
+
+      #contactIconsBox a {
+        display: inline-block;
+        font-size: 0;
+      }
+
+      #contactIconsBox img {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        margin-left: 5px;
+        display: inline-block;
+      }
+
+      #email-link:hover {
+        cursor: pointer;
+      }
+    </style>
+
+    <script>
+      'use strict';
+
+      window.addEventListener('load', function() {
+        var emailLink = document.querySelector('#email-link');
+        emailLink.addEventListener('click', function() {
+          window.location = 'mailto:volt' + 'revo@gmail.com'
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class='bar' id='title'>
+      <div>
+        andrewmorris.io
+      </div>
+    </div>
+    <div id='project-cards'>
+      <% for (const project of projects) { %>
+        <a href='<%= rootDir %>/<%= project %>'>
+          <img src='<%= rootDir %>/<%= project %>/preview.png'/>
+        </a>
+      <% } %>
+    </div>
+
+    <div id='contactIconsBox'><!--
+      --><a href='https://github.com/voltrevo'><img src='<%= rootDir %>/images/github-icon.png'/></a><!--
+      --><a href='https://www.facebook.com/andrew.morris.3538'><img src='<%= rootDir %>/images/facebook-icon.png'/></a><!--
+      --><a href='https://twitter.com/voltrevo'><img src='<%= rootDir %>/images/twitter-icon.png'/></a><!--
+      --><a href='https://au.linkedin.com/pub/andrew-morris/87/186/43a'><img src='<%= rootDir %>/images/linkedin-icon.png'/></a><!--
+      --><a id='email-link'><img src='<%= rootDir %>/images/email-icon.png'/></a><!--
+    --></div>
+  </body>
+</html>
