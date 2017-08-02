@@ -1,0 +1,14 @@
+{
+  "name": "andrewmorris.io",
+  "version": "1.0.0",
+  "description": "Personal website of Andrew Morris",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew Morris",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.5.7"
+  }
+}
