@@ -10,7 +10,9 @@
   "license": "MIT",
   "dependencies": {
     "ejs": "^2.5.7",
-    "mz": "^2.6.0"
+    "mkdirp": "^0.5.1",
+    "mz": "^2.6.0",
+    "rimraf": "^2.6.1"
   },
   "devDependencies": {
     "eslint": "^4.3.0",
