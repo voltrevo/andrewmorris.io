@@ -1,3 +1,6 @@
 [submodule "projects/mandelbrot"]
 	path = projects/mandelbrot
 	url = git@github.com:voltrevo/mandelbrot
+[submodule "projects/trailer-reversing"]
+	path = projects/trailer-reversing
+	url = git@github.com:voltrevo/trailer-reversing
