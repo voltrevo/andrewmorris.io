@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require('path');
 const { promisify } = require('util');
 
 const fs = require('mz/fs');
@@ -8,7 +7,7 @@ const ncp = promisify(require('ncp'));
 
 module.exports = async (srcDir, dstDir) => {
   const [srcList, dstList] = await Promise.all(
-    [srcDir, dstDir].map(fs.readdir),
+    [srcDir, dstDir].map(dir => fs.readdir(dir)),
   );
 
   const combinedList = [...srcList, ...dstList].sort();
@@ -22,7 +21,5 @@ module.exports = async (srcDir, dstDir) => {
     }
   }
 
-  await Promise.all(srcList.map(
-    srcItem => ncp(path.join(srcDir, srcItem), dstDir),
-  ));
+  await ncp(srcDir, dstDir);
 };
