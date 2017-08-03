@@ -1,3 +1,7 @@
+<%
+  const isUrl = require('is-url');
+  const resolve = (link) => isUrl(link) ? link : `${projectRoot}/${link}`;
+%>
 <DOCTYPE html>
 <html>
   <head>
@@ -110,9 +114,9 @@
       </div>
     </div>
     <div id='project-cards'>
-      <% for (const project of projects) { %>
-        <a href='<%= projectRoot %>/<%= project %>'>
-          <img src='<%= projectRoot %>/<%= project %>/preview.png'/>
+      <% for (const [projectName, projectData] of Object.entries(projects)) { %>
+        <a href='<%= resolve(projectData.link || projectName) %>'>
+          <img src='<%= resolve(projectData.previewImg || `${projectName}/preview.png`) %>'/>
         </a>
       <% } %>
     </div>
