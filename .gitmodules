@@ -4,3 +4,6 @@
 [submodule "projects/trailer-reversing"]
 	path = projects/trailer-reversing
 	url = git@github.com:voltrevo/trailer-reversing
+[submodule "projects/poisson-meditation"]
+	path = projects/poisson-meditation
+	url = git@github.com:voltrevo/poisson-meditation
