@@ -7,3 +7,6 @@
 [submodule "projects/poisson-meditation"]
 	path = projects/poisson-meditation
 	url = git@github.com:voltrevo/poisson-meditation
+[submodule "projects/lightpost"]
+	path = projects/lightpost
+	url = git@github.com:voltrevo/lightpost
