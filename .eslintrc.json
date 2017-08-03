@@ -3,5 +3,8 @@
     "parserOptions": {
         "sourceType": "script"
     },
-    "plugins": ["async-await"]
+    "plugins": ["async-await"],
+    "rules": {
+        "no-plusplus": 0
+    }
 }
