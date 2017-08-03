@@ -1,6 +1,11 @@
 <%
   const isUrl = require('is-url');
-  const resolve = (link) => isUrl(link) ? link : `${projectRoot}/${link}`;
+
+  const resolve = (link) =>
+    isUrl(link) ? link :
+    projectRoot === '/' ? `/${link}` :
+    `${projectRoot}/${link}`
+  ;
 %>
 <DOCTYPE html>
 <html>
@@ -11,7 +16,7 @@
 
     <style>
       body {
-        background-image: url(<%= projectRoot %>/images/bg.jpg);
+        background-image: url(<%= resolve('images/bg.jpg') %>);
         background-size: cover;
         background-attachment: fixed;
         color: white;
@@ -115,18 +120,20 @@
     </div>
     <div id='project-cards'>
       <% for (const [projectName, projectData] of Object.entries(projects)) { %>
-        <a href='<%= resolve(projectData.link || projectName) %>'>
-          <img src='<%= resolve(projectData.previewImg || `${projectName}/preview.png`) %>'/>
-        </a>
+        <div>
+          <a href='<%= resolve(projectData.link || projectName) %>'>
+            <img src='<%= resolve(projectData.previewImg || `${projectName}/preview.png`) %>'/>
+          </a>
+        </div>
       <% } %>
     </div>
 
     <div id='contactIconsBox'><!--
-      --><a href='https://github.com/voltrevo'><img src='<%= projectRoot %>/images/github-icon.png'/></a><!--
-      --><a href='https://www.facebook.com/andrew.morris.3538'><img src='<%= projectRoot %>/images/facebook-icon.png'/></a><!--
-      --><a href='https://twitter.com/voltrevo'><img src='<%= projectRoot %>/images/twitter-icon.png'/></a><!--
-      --><a href='https://au.linkedin.com/pub/andrew-morris/87/186/43a'><img src='<%= projectRoot %>/images/linkedin-icon.png'/></a><!--
-      --><a id='email-link'><img src='<%= projectRoot %>/images/email-icon.png'/></a><!--
+      --><a href='https://github.com/voltrevo'><img src='<%= resolve('images/github-icon.png') %>'/></a><!--
+      --><a href='https://www.facebook.com/andrew.morris.3538'><img src='<%= resolve('images/facebook-icon.png') %>'/></a><!--
+      --><a href='https://twitter.com/voltrevo'><img src='<%= resolve('images/twitter-icon.png') %>'/></a><!--
+      --><a href='https://au.linkedin.com/pub/andrew-morris/87/186/43a'><img src='<%= resolve('images/linkedin-icon.png') %>'/></a><!--
+      --><a id='email-link'><img src='<%= resolve('images/email-icon.png') %>'/></a><!--
     --></div>
   </body>
 </html>

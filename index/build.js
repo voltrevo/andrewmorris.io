@@ -21,16 +21,14 @@ module.exports = async ({
   const projects = {};
 
   await Promise.all(projectList.map(async (projectName) => {
-    let projectJson = '{}';
-
-    projectJson = (await fs.readFile(
+    const projectJson = await fs.readFile(
       path.join(projectsDir, projectName, 'web', 'project.json'),
-    )).catch((err) => {
+    ).catch((err) => {
       if (err.code === 'ENOENT') {
-        // this is ok
-      } else {
-        throw err;
+        return '{}';
       }
+
+      throw err;
     });
 
     projects[projectName] = JSON.parse(projectJson);

@@ -26,7 +26,10 @@ const build = async ({
     return projectBuild({
       addStaticDir,
       outputDir: projectOutputDir,
-      projectRoot: path.join(projectRoot, projectRelDest),
+      projectRoot: (() => {
+        const candidate = path.join(projectRoot, projectRelDest).replace(/^.\//, '/');
+        return candidate === '.' ? '/' : candidate;
+      })(),
     });
   };
 
