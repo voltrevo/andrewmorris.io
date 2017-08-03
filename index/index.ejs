@@ -7,7 +7,7 @@
 
     <style>
       body {
-        background-image: url(<%= rootDir %>/images/bg.jpg);
+        background-image: url(<%= projectRoot %>/images/bg.jpg);
         background-size: cover;
         background-attachment: fixed;
         color: white;
@@ -111,18 +111,18 @@
     </div>
     <div id='project-cards'>
       <% for (const project of projects) { %>
-        <a href='<%= rootDir %>/<%= project %>'>
-          <img src='<%= rootDir %>/<%= project %>/preview.png'/>
+        <a href='<%= projectRoot %>/<%= project %>'>
+          <img src='<%= projectRoot %>/<%= project %>/preview.png'/>
         </a>
       <% } %>
     </div>
 
     <div id='contactIconsBox'><!--
-      --><a href='https://github.com/voltrevo'><img src='<%= rootDir %>/images/github-icon.png'/></a><!--
-      --><a href='https://www.facebook.com/andrew.morris.3538'><img src='<%= rootDir %>/images/facebook-icon.png'/></a><!--
-      --><a href='https://twitter.com/voltrevo'><img src='<%= rootDir %>/images/twitter-icon.png'/></a><!--
-      --><a href='https://au.linkedin.com/pub/andrew-morris/87/186/43a'><img src='<%= rootDir %>/images/linkedin-icon.png'/></a><!--
-      --><a id='email-link'><img src='<%= rootDir %>/images/email-icon.png'/></a><!--
+      --><a href='https://github.com/voltrevo'><img src='<%= projectRoot %>/images/github-icon.png'/></a><!--
+      --><a href='https://www.facebook.com/andrew.morris.3538'><img src='<%= projectRoot %>/images/facebook-icon.png'/></a><!--
+      --><a href='https://twitter.com/voltrevo'><img src='<%= projectRoot %>/images/twitter-icon.png'/></a><!--
+      --><a href='https://au.linkedin.com/pub/andrew-morris/87/186/43a'><img src='<%= projectRoot %>/images/linkedin-icon.png'/></a><!--
+      --><a id='email-link'><img src='<%= projectRoot %>/images/email-icon.png'/></a><!--
     --></div>
   </body>
 </html>
