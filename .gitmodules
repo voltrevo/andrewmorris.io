@@ -10,3 +10,6 @@
 [submodule "projects/lightpost"]
 	path = projects/lightpost
 	url = git@github.com:voltrevo/lightpost
+[submodule "projects/dots"]
+	path = projects/dots
+	url = git@github.com:voltrevo/dots
