@@ -19,3 +19,6 @@
 [submodule "projects/2048"]
 	path = projects/2048
 	url = git@github.com:voltrevo/2048
+[submodule "projects/chess"]
+	path = projects/chess
+	url = git@github.com:voltrevo/chess
