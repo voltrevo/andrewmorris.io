@@ -119,7 +119,10 @@
       </div>
     </div>
     <div id='project-cards'>
-      <% for (const [projectName, projectData] of Object.entries(projects)) { %>
+      <% for (const [projectName, projectData] of Object.entries(projects)) {
+        if (projectData.unlisted) {
+          continue;
+        } %>
         <div>
           <a href='<%= resolve(projectData.link || projectName) %>'>
             <img src='<%= resolve(projectData.previewImg || `${projectName}/preview.png`) %>'/>

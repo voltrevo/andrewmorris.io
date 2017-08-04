@@ -18,12 +18,36 @@ const build = async ({
   await fs.mkdir(outputDir);
 
   const buildProject = async ({ projectPath, projectRelDest }) => {
-    const projectBuild = require(path.join(projectPath, 'build.js'));
+    const buildScriptPath = path.join(projectPath, 'build.js');
     const projectOutputDir = path.join(outputDir, projectRelDest);
 
     await mkdirp(projectOutputDir);
 
-    return projectBuild({
+    const projectBuild = await (async () => {
+      const exists = await fs.stat(buildScriptPath)
+        .then(() => true)
+        .catch((err) => {
+          if (err.code === 'ENOENT') {
+            return false;
+          }
+
+          throw err;
+        })
+      ;
+
+      if (!exists) {
+        return null;
+      }
+
+      return require(path.join(projectPath, 'build.js'));
+    })();
+
+    if (!projectBuild) {
+      await addStaticDir(path.join(projectPath, 'static'), projectOutputDir);
+      return;
+    }
+
+    await projectBuild({
       addStaticDir,
       outputDir: projectOutputDir,
       projectRoot: (() => {
