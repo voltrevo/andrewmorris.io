@@ -16,3 +16,6 @@
 [submodule "projects/snake"]
 	path = projects/snake
 	url = git@github.com:voltrevo/snake
+[submodule "projects/2048"]
+	path = projects/2048
+	url = git@github.com:voltrevo/2048
