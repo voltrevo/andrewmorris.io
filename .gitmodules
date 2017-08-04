@@ -13,3 +13,6 @@
 [submodule "projects/dots"]
 	path = projects/dots
 	url = git@github.com:voltrevo/dots
+[submodule "projects/snake"]
+	path = projects/snake
+	url = git@github.com:voltrevo/snake
