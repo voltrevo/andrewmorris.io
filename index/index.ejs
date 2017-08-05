@@ -67,14 +67,33 @@
         display: inline-block;
         width: 352px;
         height: 198px;
-        margin: 0;
-        padding: 20px;
+        margin: 20px;
+        border-radius: 15px;
+        background-size: cover;
       }
 
-      #project-cards > div img {
+      #project-cards > div div {
         width: 100%;
         height: 100%;
+      }
+
+      #project-cards .card-content {
+        display: table;
+      }
+
+      #project-cards .desc {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        background-color: rgba(40, 40, 40, 0.6);
+        color: white;
         border-radius: 15px;
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+
+      #project-cards .desc:hover {
+        opacity: 1;
       }
 
       #contactIconsBox {
@@ -123,9 +142,15 @@
         if (projectData.unlisted) {
           continue;
         } %>
-        <div>
+        <div style='background-image:url(<%= resolve(projectData.previewImg || `${projectName}/preview.png`) %>);'>
           <a href='<%= resolve(projectData.link || projectName) %>'>
-            <img src='<%= resolve(projectData.previewImg || `${projectName}/preview.png`) %>'/>
+            <div class='card-content'>
+              <% if (projectData.description) { %>
+                <div class='desc'><%= projectData.description %></div>
+              <% } else { %>
+                <div></div>
+              <% } %>
+            </div>
           </a>
         </div>
       <% } %>
