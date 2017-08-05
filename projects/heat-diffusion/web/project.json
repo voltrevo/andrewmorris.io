@@ -1,3 +1,4 @@
 {
-  "link": "heat-diffusion/heat-diffusion.pdf"
+  "link": "heat-diffusion/heat-diffusion.pdf",
+  "description": "Paper on numerical methods for heat diffusion."
 }

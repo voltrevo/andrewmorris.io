@@ -1,3 +1,4 @@
 {
-  "link": "https://github.com/voltrevo/sudoku-solver"
+  "link": "https://github.com/voltrevo/sudoku-solver",
+  "description": "Super-fast C++ sudoku solver."
 }

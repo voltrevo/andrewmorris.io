@@ -1,3 +1,4 @@
 {
-  "link": "trinomial/trinomial.pdf"
+  "link": "trinomial/trinomial.pdf",
+  "description": "Paper on the equivalence between the trinomial and finite difference methods for option pricing."
 }
