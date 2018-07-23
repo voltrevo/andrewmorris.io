@@ -3,9 +3,12 @@
 const { promisify } = require('util');
 
 const fs = require('mz/fs');
+const mkdirp = promisify(require('mkdirp'));
 const ncp = promisify(require('ncp'));
 
 module.exports = async (srcDir, dstDir) => {
+  await mkdirp(dstDir);
+
   const [srcList, dstList] = await Promise.all(
     [srcDir, dstDir].map(dir => fs.readdir(dir)),
   );
