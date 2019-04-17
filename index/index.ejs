@@ -139,7 +139,7 @@
       </div>
     </div>
     <div id='project-cards'>
-      <% for (const [projectName, projectData] of Object.entries(projects)) {
+      <% for (const [projectName, projectData] of projectEntries) {
         if (projectData.unlisted) {
           continue;
         } %>

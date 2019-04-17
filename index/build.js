@@ -34,9 +34,27 @@ module.exports = async ({
     projects[projectName] = JSON.parse(projectJson);
   }));
 
+  const highlightedProjects = ['vortex', 'mandelbrot', 'battleblender'].reverse();
+
+  const projectEntries = (Object
+    .entries(projects)
+    .sort(([leftName], [rightName]) => {
+      const hl = highlightedProjects.indexOf(leftName);
+      const hr = highlightedProjects.indexOf(rightName);
+
+      if (hl !== hr) {
+        return hr - hl;
+      }
+
+      return leftName < rightName ? -1 : 1;
+    })
+  );
+
+  console.log(projectEntries);
+
   const renderedIndex = await ejsRenderFile(
     path.join(__dirname, 'index.ejs'),
-    { projects, projectRoot, require },
+    { projectEntries, projectRoot, require },
   );
 
   await fs.writeFile(path.join(outputDir, 'index.html'), renderedIndex);
